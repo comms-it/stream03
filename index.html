@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="bootstrap-5.0.0-beta3/dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bootstrap-5.0.0-beta3/dist/js/bootstrap.js"></script>
+    <title>Test Streaming</title>
+</head>
+
+<body style="background-color: rgb(209, 241, 241);">
+    <div class="container p-5">
+        <div class="card border rounded-lg shadow-lg mx-auto" style="width: 329px;">
+            <div class="card-head shadow border rounded-lg" style="background-color: #0dcaf0;">
+                <h1 class="py-1 text-center text-uppercase ">Send test</h1>
+            </div>
+            <div class="card-body">
+                <form id="myForm" autocomplete="off" method="GET" action="getForm.php">
+                    <label for="inName">Name:</label>
+                    <input type="text" class="form-control mb-3 shadow" id="inputName" name="inName" value="Mario" />
+                    <label for="inSurname">Surname:</label>
+                    <input type="text" class="form-control mb-3 shadow" id="inputSurname" name="inSurname" value="Rossi" />
+                    <label for="inAge">Age:</label>
+                    <input type="number" class="form-control mb-3 shadow" id="inputAge" name="inAge" value="15" min="0" max="100" />
+                </form>
+                <hr class="my-4 mx-auto" width="50%">
+                <input type="submit" class="btn btn-info w-100 mb-3 shadow" value="Send form (standard)" form="myForm" />
+                <a href="#" class="btn btn-info w-100 mb-3 shadow" onclick="sendFormAjax()">Send form (JSON with ajax)</a>
+                <a href="#" class="btn btn-info w-100  shadow" onclick="sendFormFetch()">Send Form (JSON with Fetch)</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    var xhttp;
+
+    var url = "getJson.php";
+
+
+    /**
+     * Take the value from the input and create the json
+     */
+    function getData() {
+        var name = document.getElementById('inputName').value;
+        var surname = document.getElementById('inputSurname').value;
+        var age = document.getElementById('inputAge').value;
+        var jsonData = JSON.stringify({ "name": name, "surname": surname, "age": age });
+        return jsonData;
+    }
+
+
+    /**
+     * Send the form as json with ajax 
+     */
+    function sendFormAjax() {
+        xhttp = new XMLHttpRequest();
+        xhttp.open('POST', url, true);
+        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhttp.send(getData());
+    }
+
+
+    /**
+     * Send the form as json with fetch 
+     */
+    function sendFormFetch() {
+        (async () => {
+            const rawResponse = fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: getData()
+            });
+        })();
+    }
+
+
+</script>
+
+</html>
