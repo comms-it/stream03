@@ -27,16 +27,14 @@
 
 	<button id="btnAjax">Send form (Ajax)</button>
 
-	<div id="results">
-		
-	</div>
+	<div id="results"></div>
 
 </body>
 
 <script>
 	var xhr;
 
-	var url = "php/getUrlEncodedData.php";
+	var url = "../php/getUrlEncodedData.php";
 
 	/* Get btnAjax */
 	var btnAjax = document.getElementById('btnAjax');
@@ -45,7 +43,6 @@
 	btnAjax.onclick = function() {
 		sendFormAjax();
 	};
-	
 
 	/**
 	 * Send the form as json with ajax 
@@ -55,33 +52,34 @@
 
 		xhr = new XMLHttpRequest();
 		xhr.open('POST', url, true);
-		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		xhr.setRequestHeader('Content-Type',
+				'application/x-www-form-urlencoded');
 
 		xhr.onload = function() {
 			if (this.status >= 200 && this.status < 400) {
 				var responseData = this.response;
 				// alert(responseData);
-				document.getElementById('results').innerHTML += "<h1>"+ responseData+ "</h1>";
+				document.getElementById('results').innerHTML += "<h1>"
+						+ responseData + "</h1>";
 			} else {
 				alert('error');
 			}
 		}
 		xhr.send(serializeFormToUrlEncode());
 	}
-	
+
 	function serializeFormToUrlEncode() {
 
-        var name = document.getElementById('inputName').value;
-        var surname = document.getElementById('inputSurname').value;
-        var age = document.getElementById('inputAge').value;
+		var name = document.getElementById('inputName').value;
+		var surname = document.getElementById('inputSurname').value;
+		var age = document.getElementById('inputAge').value;
 
-        /* Compose the string */
-        var strng =  "name="+ name + "&surname=" +  surname + "&age="+ age ;
+		/* Compose the string */
+		var strng = "name=" + name + "&surname=" + surname + "&age=" + age;
 
-        return strng;
+		return strng;
 
-    }
-	
+	}
 </script>
 
 </html>
