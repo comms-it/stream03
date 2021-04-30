@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Streaming</title>
+
+</head>
+
+<body>
+
+	<h1>Send test XHR URL ENCODED</h1>
+
+	<form id="myForm" autocomplete="off">
+		<label for="inName">Name:</label> <input type="text" id="inputName"
+			name="inName" value="Mario" /> <br> <label for="inSurname">Surname:</label>
+		<input type="text" id="inputSurname" name="inSurname" value="Rossi" />
+		<br> <label for="inAge">Age:</label> <input type="number"
+			id="inputAge" name="inAge" value="15" min="0" max="100" />
+	</form>
+
+	<hr>
+
+	<button id="btnAjax">Send form (Ajax)</button>
+
+	<div id="results">
+		
+	</div>
+
+</body>
+
+<script>
+	var xhr;
+
+	var url = "php/getUrlEncodedData.php";
+
+	/* Get btnAjax */
+	var btnAjax = document.getElementById('btnAjax');
+
+	/* Activate function onclick */
+	btnAjax.onclick = function() {
+		sendFormAjax();
+	};
+	
+
+	/**
+	 * Send the form as json with ajax 
+	 */
+	function sendFormAjax() {
+		//var mydata = 'foo=pippo&bar=pluto';
+
+		xhr = new XMLHttpRequest();
+		xhr.open('POST', url, true);
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+
+		xhr.onload = function() {
+			if (this.status >= 200 && this.status < 400) {
+				var responseData = this.response;
+				// alert(responseData);
+				document.getElementById('results').innerHTML += "<h1>"+ responseData+ "</h1>";
+			} else {
+				alert('error');
+			}
+		}
+		xhr.send(serializeFormToUrlEncode());
+	}
+	
+	function serializeFormToUrlEncode() {
+
+        var name = document.getElementById('inputName').value;
+        var surname = document.getElementById('inputSurname').value;
+        var age = document.getElementById('inputAge').value;
+
+        /* Compose the string */
+        var strng =  "name="+ name + "&surname=" +  surname + "&age="+ age ;
+
+        return strng;
+
+    }
+	
+</script>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Streaming</title>
+
+</head>
+
+<body>
+
+	<h1>Send test Fetch</h1>
+
+	<form id="myForm" autocomplete="off">
+		<label for="inName">Name:</label> <input type="text" id="inputName"
+			name="inName" value="Mario" /> <br> <label for="inSurname">Surname:</label>
+		<input type="text" id="inputSurname" name="inSurname" value="Rossi" />
+		<br> <label for="inAge">Age:</label> <input type="number"
+			id="inputAge" name="inAge" value="15" min="0" max="100" />
+	</form>
+
+	<hr>
+
+	<button id="btnFetch">Send form (json Fetch)</button>
+
+	<div id="results"></div>
+
+</body>
+
+<script>
+	var xhttp;
+
+	var url = "php/getJsonFetch.php";
+
+	/* Get btnFetch */
+	var btnFetch = document.getElementById('btnFetch');
+
+	/* Activate function onclick */
+	btnFetch.onclick = function() {
+		sendFormFetch();
+	};
+
+	/**
+	 * Take the value from the input and create the json
+	 */
+	function serializeForm() {
+
+		var name = document.getElementById('inputName').value;
+		var surname = document.getElementById('inputSurname').value;
+		var age = document.getElementById('inputAge').value;
+
+		/* Compose the json */
+		var jsonData = JSON.stringify({
+			"name" : name,
+			"surname" : surname,
+			"age" : age
+		});
+
+		return jsonData;
+
+	}
+
+	/**
+	 * Send the form as json with fetch 
+	 */
+
+	function sendFormFetch() {
+		fetch(url, {
+			method : 'POST',
+			headers : {
+				'Accept' : 'application/json',
+				'Content-Type' : 'application/json'
+			},
+			body : serializeForm()
+		}).then(function(response) {
+            if (response.status !== 200) {
+                console.log('ERRORE: ' +  response.status);
+                return;
+            }
+            response.json().then(function(data) {
+                //alert(JSON.stringify(data));
+            	document.getElementById('results').innerHTML += JSON.stringify(data);
+            });
+        })
+    .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    });
+
+	}
+	
+</script>
+
+</html>
