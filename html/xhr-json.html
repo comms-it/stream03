@@ -31,43 +31,44 @@
 </body>
 
 <script>
-	var xhttp;
 
 	var url = "../php/getJson.php";
 
-	/* Get btnAjax */
-	var btnAjax = document.getElementById('btnAjax');
-
-	/* Activate function onclick */
-	btnAjax.onclick = function() {
-		sendFormAjax();
-	};
-
+	/**
+	sendFormAjax - btnAjax event on click
+	*/
+	document.getElementById("btnAjax").addEventListener("click", sendFormAjax);
 
 	/**
-	 * Send the form as json with ajax 
+	 Send the form as json with ajax 
 	 */
 	function sendFormAjax() {
-		xhttp = new XMLHttpRequest();
-		xhttp.open('POST', url, true);
-		xhttp.setRequestHeader('Content-Type','application/json');
-		xhttp.onload = function() {
+		
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open('POST', url, true);
+		
+		xhr.setRequestHeader('Content-Type','application/json');
+		
+		xhr.onload = function() {
+			
 			if (this.status >= 200 && this.status < 400) {
-				var responseData = this.response;
-				//alert(responseData);
-				document.getElementById('results').innerHTML +=  responseData;
+				
+				document.getElementById('results').innerHTML =  this.response;
 
 			} else {
 				alert('Error');
 			}
 		};
-		xhttp.send(serializeForm());
+		
+		xhr.send(serializeForm());
+		
 	}
 	
 	
 	
 	/**
-	 * Take the value from the input and create the json
+	 Take the value from the input and create the json
 	 */
 	function serializeForm() {
 

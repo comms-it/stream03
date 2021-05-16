@@ -31,20 +31,16 @@
 </body>
 
 <script>
-	var xhttp;
-
-	var url = "../php/getJsonFetch.php";
-
-	/* Get btnFetch */
-	var btnFetch = document.getElementById('btnFetch');
-
-	/* Activate function onclick */
-	btnFetch.onclick = function() {
-		sendFormFetch();
-	};
+	var url = "/php/getJsonFetch2.php";
 
 	/**
-	 * Take the value from the input and create the json
+	sendFormAjax - btnAjax event on click
+	*/
+	document.getElementById("btnFetch").addEventListener("click", sendFormFetch);
+
+	
+	/**
+	 Take the value from the input and create the json
 	 */
 	function serializeForm() {
 
@@ -54,27 +50,32 @@
 
 		/* Compose the json */
 		var jsonData = JSON.stringify({
-			"name" : name,
-			"surname" : surname,
-			"age" : age
+			name : name,
+			surname : surname,
+			age : age
 		});
-
+		/* var jsonData = JSON.stringify({
+			"name" : document.getElementById('inputName').value,
+			"surname" : document.getElementById('inputSurname').value,
+			"age" : document.getElementById('inputAge').value
+		}); */
 		return jsonData;
-
 	}
 
 	/**
-	 * Send the form as json with fetch 
-	 */
-
+	Send the form as json with fetch 
+	*/
 	function sendFormFetch() {
+
 		fetch(url, {
 			method : 'POST',
 			headers : {
 				'Accept' : 'application/json',
 				'Content-Type' : 'application/json'
 			},
+			
 			body : serializeForm()
+			
 		}).then(function(response) {
             if (response.status !== 200) {
                 console.log('ERRORE: ' +  response.status);
@@ -82,7 +83,7 @@
             }
             response.json().then(function(data) {
                 //alert(JSON.stringify(data));
-            	document.getElementById('results').innerHTML += JSON.stringify(data);
+            	document.getElementById('results').innerHTML = JSON.stringify(data);
             });
         })
     .catch(function(err) {
