@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jsq/psr7-stream-encryption": "^0.4.0"
+    }
+}
