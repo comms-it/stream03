@@ -8,8 +8,8 @@
 
     <body>
     
-        <h2>PHP STREAM - POST & FILTER</h2>
-        
+        <h2>STREAM in PHP </h2>
+        <h4>GrUSP Torino 20 Maggio 2021</h4>
         <div style="display: flex">
         
             <div style="flex:1">
@@ -17,18 +17,18 @@
                 <h3>01. BODY POST</h3>
                 <ol>
                 	 <li>
-                		  <a href="html/xhr-urlencoded.html">XHR URL ENCODED</a>
+                		  <a href="/html/xhr-urlencoded.html">XHR URL ENCODED</a>
                 		  <br>
                 		  <small>Carica i dati del form attraverso XMLHttpRequest (in url encoded)</small>
                 	 </li>
                 	 <li>
-                		  <a href="html/xhr-json.html">XHR JSON</a>
+                		  <a href="/html/xhr-json.html">XHR JSON</a>
                 		  <br>
                 		  <small>Carica i dati del form attraverso XMLHttpRequest (in formato json)</small>
                 	 </li>
                 
                 	 <li>
-                		  <a href="html/fetch.html">FETCH</a>
+                		  <a href="/html/fetch.html">FETCH</a>
                 		  <br>
                 		  <small>Carica i dati del form attraverso un fetch</small>
                 	 </li>
@@ -106,5 +106,16 @@
             </div>
             
         </div>
+        
+         <div style="display: flex">
+        
+            <div style="flex:1">
+            
+            <h3>05. reading in the middle</h3>
+            <ol>
+                <li>read content from offset<a href="/php/read01.php">LINK</a>
+                <li>read line by line<a href="/php/read02.php">LINK</a>
+                <li>read bytes range<a href="/php/read03.php">LINK</a>
+            </ol>
     </body>
 </html>
