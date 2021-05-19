@@ -40,8 +40,8 @@ $key = 'some-secret-password-here';
 echo "key: $key <br>";
 
 $path=__DIR__.'/../archive/';
-$filename01="01-loremipsum.txt";
-$filename02="02-loremipsum-ENCRYPTED.txt";
+$filename01="divinacommedia.txt";
+$filename02="divinacommedia-ENCRYPTED.txt";
 
 // Any PSR-7 stream will be fine here
 $inStream = new Stream(fopen($path.$filename01, 'r')); 

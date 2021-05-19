@@ -98,11 +98,11 @@
                 <p>Advanced Encryption Standard (AES)</p>
                 <ol>
                     <li>file 01 <a href="/php/file01.php">LINK</a> (con AES criptazione)
-                    <li>file 02 <a href="/php/file02.php">LINK</a> (con AES decriptazione)
-                    <li>file 03 <a href="/php/file03.php">LINK</a> (con AES criptazione ed hashing)
-                    <li>file 04 <a href="/php/file04.php">LINK</a> (con AES decriptazione ed hashing)
+                    <li>file 02 <a href="/php/file02.php">LINK</a> (con AES decriptazione)*
+                    <li>file 03 <a href="/php/file03.php">LINK</a> (con AES criptazione ed hashing)*
+                    <li>file 04 <a href="/php/file04.php">LINK</a> (con AES decriptazione ed hashing)*
                 </ol>
-                
+                <p><small>*not verbose</small></p>
             </div>
             
         </div>
@@ -111,11 +111,23 @@
         
             <div style="flex:1">
             
-            <h3>05. reading in the middle</h3>
-            <ol>
-                <li>read content from offset<a href="/php/read01.php">LINK</a>
-                <li>read line by line<a href="/php/read02.php">LINK</a>
-                <li>read bytes range<a href="/php/read03.php">LINK</a>
-            </ol>
+                <h3>05. reading in the middle</h3>
+                <ol>
+                    <li>read content from offset <a href="/php/read01.php">LINK</a>
+                    <li>read line by line <a href="/php/read02.php">LINK</a>
+                    <li>read bytes range <a href="/php/read03.php">LINK</a>
+                </ol>
+                
+            </div>
+            
+            <div style="flex:1">
+            
+                <h3>06. streaming video with ReactPHP</h3>
+                <ol>
+                    <li>video stream <a href="http://127.0.0.1:9001/" target="_blank">LINK</a>
+                </ol>
+                
+            </div>
+        </div>
     </body>
 </html>
