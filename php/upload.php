@@ -8,17 +8,17 @@ if(!$fileHandler){
  throw new \Exception('File handler KO');
 }
 
-$uploadRate = 1 * 1000; // Bytes
-
 // save data from the input stream
 while(true) {
-	$buffer = fgets( $inputHandler, $uploadRate );
+    
+    $buffer = fgets( $inputHandler, 4096 );
+	
 	if (strlen($buffer) == 0) {
 		fclose($inputHandler);
 		fclose($fileHandler);
 		return true;
 	}
-//	sleep(1);
+	
 	fwrite($fileHandler, $buffer);
 }
 

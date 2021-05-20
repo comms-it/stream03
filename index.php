@@ -17,18 +17,18 @@
                 <h3>01. BODY POST</h3>
                 <ol>
                 	 <li>
-                		  <a href="/html/xhr-urlencoded.html">XHR URL ENCODED</a>
+                		  <a href="/html/xhr-urlencoded.html">CLASSIC POST RECEIVING (SENT VIA XHR URL ENCODED)</a>
                 		  <br>
                 		  <small>Carica i dati del form attraverso XMLHttpRequest (in url encoded)</small>
                 	 </li>
                 	 <li>
-                		  <a href="/html/xhr-json.html">XHR JSON</a>
+                		  <a href="/html/xhr-json.html">POST RECEIVING (SENT VIA XHR JSON)</a>
                 		  <br>
                 		  <small>Carica i dati del form attraverso XMLHttpRequest (in formato json)</small>
                 	 </li>
                 
                 	 <li>
-                		  <a href="/html/fetch.html">FETCH</a>
+                		  <a href="/html/fetch.html">POST RECEIVING (SENT VIA FETCH)</a>
                 		  <br>
                 		  <small>Carica i dati del form attraverso un fetch</small>
                 	 </li>
@@ -42,17 +42,22 @@
                 
                 <ol>
                 	 <li>
-                		  <a href="/html/fetchToFilter.html">FETCH TO FILTER</a>
+                		  <a href="/html/fetchToFilter1.html">FETCH TO FILTER 1</a>
                 		  <br>
-                		  <small>Filtra i dati postati via fetch</small>
+                		  <small>Filtra i dati Uppercase</small>
                 	 </li>
                 	 <li>
-                		  <a href="/php/filter.php">STREAM FILTER</a>
+                		  <a href="/html/fetchToFilter2.html">FETCH TO FILTER 2</a>
+                		  <br>
+                		  <small>Filtra i dati Uppercase + Rot13 </small>
+                	 </li>
+                	 <li>
+                		  <a href="/php/filter3.php">STREAM FILTER</a>
                 		  <br>
                 		  <small>file filter with stream_filter_append</small>
                 	 </li>
                 	 <li>
-                		  <a href="/php/customFilter.php">CUSTOM FILTER</a>
+                		  <a href="/php/filter4.php">CUSTOM FILTER</a>
                 		  <br>
                 		  <small>stream_filter_append</small>
                 	 </li>

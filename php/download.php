@@ -1,11 +1,13 @@
 <?php
-echo '<h3>download rate</h3>';
+echo '<h3>Download rate</h3>';
+
+// Download Rate
 
 $local_file = dirname(__FILE__).'/largefiles/100MB.zip';
 $download_file = 'myCustomName.zip';
 
 // set the download rate limit (=> 50 kBytes/s = 400 kbps)
-$download_rate = 50 * 1000;
+$download_rate = 50 * 1024;
 
 if(file_exists($local_file) && is_file($local_file))
 {
