@@ -115,7 +115,7 @@
         
             <div style="flex:1">
             
-                <h3>05. reading in the middle</h3>
+                <h3>05. OFFSET</h3>
                 <ol>
                     <li>read content from offset <a href="/php/read01.php">LINK</a>
                     <li>read line by line <a href="/php/read02.php">LINK</a>
