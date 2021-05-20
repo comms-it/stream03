@@ -123,15 +123,16 @@
                 </ol>
                 
             </div>
-            
+            <!--  
             <div style="flex:1">
             
                 <h3>06. streaming video with ReactPHP</h3>
                 <ol>
-                    <li>video stream <a href="http://127.0.0.1:9001/" target="_blank">LINK</a>
+                    <li>video stream <a href="http://blue:9001/" target="_blank">LINK</a>
                 </ol>
                 
             </div>
+            -->
         </div>
     </body>
 </html>
