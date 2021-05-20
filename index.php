@@ -5,13 +5,12 @@
 ?>
 <!DOCTYPE html>
 <html>
-
     <body>
     
         <h2>STREAM in PHP </h2>
         <h4>GrUSP Torino 20 Maggio 2021</h4>
-        <div style="display: flex">
         
+        <div style="display: flex">
             <div style="flex:1">
         	
                 <h3>01. BODY POST</h3>
@@ -99,7 +98,7 @@
                  * @link https://packagist.org/packages/jsq/psr7-stream-encryption
                  */
                 ?>
-                <h3>04. PSR7 STREAM ENCRIPTION </h3>
+                <h3>04. PSR7 STREAM ENCRYPTION </h3>
                 <p>Advanced Encryption Standard (AES)</p>
                 <ol>
                     <li>file 01 <a href="/php/file01.php">LINK</a> (con AES criptazione)
