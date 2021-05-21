@@ -1,5 +1,7 @@
 # stream03
-stream from ajax
+Demo GrUSP Torino 20 Maggio 2021
 
-vari test da fonti diverse to php stream
-
+# before run
+composer update
+# run
+php -S 127.0.0.1:9003
